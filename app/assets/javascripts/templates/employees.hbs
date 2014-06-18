@@ -1,0 +1,29 @@
+<h2>Employees</h2>
+
+{{#unless isFirstPage}}
+  {{#link-to 'employees' (query-params page="1")}}
+    <<
+  {{/link-to}}
+{{/unless}}
+
+{{#if showPreviousLink}}
+  {{#link-to 'employees' (query-params page=previousPage)}}
+    {{previousPage}}
+  {{/link-to}}
+{{/if}}
+
+{{#if showNextLink}}
+  {{#link-to 'employees' (query-params page=nextPage)}}
+    {{nextPage}}
+  {{/link-to}}
+{{/if}}
+
+{{#unless isLastPage}}
+  {{#link-to 'employees' (query-params page=totalPages)}}
+    >>
+  {{/link-to}}
+{{/unless}}
+
+{{#each}}
+  <p>{{name}}</p>
+{{/each}}
